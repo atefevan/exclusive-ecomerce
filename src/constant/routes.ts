@@ -1,3 +1,3 @@
-export const routes = ["Products", "Wishlist", "About", "Sign Up"];
+export const routes = ["product", "wishlist", "about", "signup"];
 
 export const menuOptions = ["Profile", "Logout"];

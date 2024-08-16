@@ -37,6 +37,8 @@ interface Props {
   paddingAll?: string | number;
   alignSelf?: string;
   onClick?: () => void;
+  noWrap?: any;
+  href?: string;
   style?: SxProps<Theme>;
 }
 
@@ -59,11 +61,14 @@ const Text = ({
   bg_color,
   alignSelf,
   onClick,
+  noWrap,
   style,
+  href,
 }: Props) => {
   return (
     <Typography
       variant={variant}
+      href={href}
       fontFamily={fontFamily}
       fontWeight={fontWeight}
       fontSize={fontSize}
@@ -74,6 +79,7 @@ const Text = ({
       bgcolor={bg_color}
       alignSelf={alignSelf}
       component={component}
+      noWrap={noWrap}
       onClick={onClick}
       sx={{
         mt: marginTop,

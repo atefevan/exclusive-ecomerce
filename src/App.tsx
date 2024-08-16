@@ -19,10 +19,9 @@ const App = () => {
           <Routes>
             <>
               <Route path="/" element={<Home />} />
-              <Route path="/whishlist" element={<Wishlist />} />
+              <Route path="/wishlist" element={<Wishlist />} />
               <Route path="/product" element={<Products />} />
               <Route path="/product/:id" element={<Details />} />
-              <Route path="/whishlist" element={<Wishlist />} />
               <Route path="/about" element={<About />} />
               <Route path="/auth" element={<Auth />} />
               <Route path="*" element={<NoPage />} />

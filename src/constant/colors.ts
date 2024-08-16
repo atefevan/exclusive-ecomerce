@@ -153,6 +153,7 @@ const others = {
 };
 const dark = {
   backgroundColor: "#171A27",
+  card:"#1b2c3b",
   header_backgroundColor:"#EEEEEE",
   text: "#ffffff",
   ...others,
@@ -160,6 +161,7 @@ const dark = {
 
 const light = {
   backgroundColor: "#ffffff",
+  card:"#EEEEEE",
   header_backgroundColor:"#000000",
   text: "#191919",
   ...others,

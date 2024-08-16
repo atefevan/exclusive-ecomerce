@@ -1,27 +1,29 @@
-import { CircularProgress, SxProps, Theme } from "@mui/material";
+import { Skeleton, SxProps, Theme } from "@mui/material";
+import * as React from "react";
 interface Props {
-  color?:
-    | "success"
-    | "error"
-    | "info"
-    | "inherit"
-    | "primary"
-    | "secondary"
-    | "warning";
-  custom_color?: string;
-  size?: number | string;
+  color?: string;
+  type?: "rectangular" | "circular" | "rounded" | "text";
+  height?: number | string;
+  animation?: "wave";
+  width?: number | string;
   style?: SxProps<Theme>;
 }
 const Loader = ({
-  color = "inherit",
-  custom_color,
-  size = 40,
+  color = "#2a2c2f",
+  width = "100%",
+  height = "100%",
+  type = "rectangular",
+  animation = "wave",
   style,
 }: Props) => {
   return (
-    <div style={{ display: "flex", color: custom_color }}>
-      <CircularProgress color={color} sx={{ ...style }} size={size} />
-    </div>
+    <Skeleton
+      animation={animation}
+      variant={type}
+      width={width}
+      height={height}
+      sx={{ ...style }}
+    />
   );
 };
 

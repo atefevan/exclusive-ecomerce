@@ -10,7 +10,7 @@ interface Props {
   width?: string | number;
   onClick?: (e?: any) => void;
 }
-const C_IconButton = ({
+const IconBtn = ({
   muiIcon,
   height = "40px",
   width = "40px",
@@ -39,4 +39,4 @@ const C_IconButton = ({
   );
 };
 
-export default C_IconButton;
+export default IconBtn;
