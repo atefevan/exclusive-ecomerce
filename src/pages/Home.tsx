@@ -17,6 +17,7 @@ import Divider from "../components/Divider";
 import { capitalize } from "../utils/Capitalize";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import Footer from "../components/Footer";
+import Carousel from "../components/Carousel";
 
 const Home = () => {
   const { colorscheme } = useColorScheme();
@@ -58,13 +59,12 @@ const Home = () => {
           display: "flex",
           flexDirection: "column",
           justifyContent: "flex-start",
-          
           overflowY: "auto",
           height: "100vh",
         }}
       >
         {/* Banner Section */}
-        <Box sx={{ display: "flex", minHeight: "45vh", pb: "2vh",px: "5vw", }}>
+        <Box sx={{ display: "flex", minHeight: "45vh", pb: "2vh", px: "5vw" }}>
           <Box
             key={"banner"}
             sx={{
@@ -111,32 +111,43 @@ const Home = () => {
               overflow: "clip",
             }}
           >
-            <Box
-              sx={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                overflow: "clip",
-              }}
-            >
-              <Box
-                component={"img"}
-                src={png.banner}
-                sx={{
-                  display: "flex",
-                  flex: 1,
-                  justifyContent: "center",
-                  alignItems: "center",
-                  width: "100%",
-                  backgroundSize: "cover",
-                }}
-              />
-            </Box>
+            <Carousel>
+              {Array.from(new Array(5)).map((_, index) => (
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    overflow: "clip",
+                  }}
+                >
+                  <Box
+                    component={"img"}
+                    src={png.banner}
+                    sx={{
+                      display: "flex",
+                      flex: 1,
+                      justifyContent: "center",
+                      alignItems: "center",
+                      width: "100%",
+                      backgroundSize: "cover",
+                    }}
+                  />
+                </Box>
+              ))}
+            </Carousel>
           </Box>
         </Box>
 
         {/* Flash Sales */}
-        <Box sx={{ display: "flex", flexDirection: "column", flexGrow: 1,px: "5vw", }}>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            flexGrow: 1,
+            px: "5vw",
+          }}
+        >
           <Box sx={{ display: "flex", alignItems: "center" }}>
             <Box
               sx={{

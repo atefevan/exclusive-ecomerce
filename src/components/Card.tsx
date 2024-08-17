@@ -84,7 +84,7 @@ const Card = ({
                 darkMode === "dark" ? colorscheme.black : colorscheme.white
               }
             >
-              {`- ${randRating()}%`}
+              {`- ${randRating(30, 80)}%`}
             </Text>
           </Box>
           <Box display={"flex"} flexDirection={"column"}>
