@@ -14,7 +14,7 @@ const Header = () => {
     <Box
       sx={{
         display: "flex",
-        height: "5%",
+        height: "7%",
         backgroundColor: colorscheme.text,
         width: "100%",
         justifyContent: "center",

@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, SxProps, Theme } from "@mui/material";
 
 interface Props {
   width?: string | number;
@@ -6,6 +6,7 @@ interface Props {
   color?: string;
   margin?: string | number;
   orientation?: "horizontal" | "vertical";
+  style?: SxProps<Theme>;
 }
 
 const Divider = ({
@@ -14,6 +15,7 @@ const Divider = ({
   color = "#202020",
   margin = "16px 0",
   orientation = "horizontal",
+  style,
 }: Props) => {
   return (
     <Box
@@ -22,6 +24,7 @@ const Divider = ({
         width: orientation === "horizontal" ? width : height,
         height: orientation === "horizontal" ? height : width,
         margin: orientation === "horizontal" ? `${margin} 0` : `0 ${margin}`,
+        ...style,
       }}
     />
   );

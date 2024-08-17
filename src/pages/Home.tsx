@@ -2,7 +2,7 @@ import { Box } from "@mui/material";
 import * as React from "react";
 import Background from "../components/Background";
 import Timer from "../components/Timer";
-import Card from "../components/Card";
+import Card from "../components/GridCard";
 import Text from "../components/Text";
 import { fontSizes } from "../constant/sizes";
 import useColorScheme from "../hooks/useColorScheme";
@@ -90,7 +90,7 @@ const Home = () => {
                   justifyContent: { xs: "center", md: "start" },
                   width: { xs: "100%", md: "80%" },
                 }}
-                onClick={() => navigate(`/product/${category}`)}
+                // onClick={() => navigate(`/product/${category}`)}
               />
             ))}
           </Box>
@@ -204,9 +204,9 @@ const Home = () => {
             sx={{
               display: "flex",
               overflowX: { xs: "auto", md: "hidden" },
+              scrollBehavior: "smooth",
               gap: 2,
               pb: 2,
-              scrollBehavior: "smooth",
             }}
           >
             {!loading

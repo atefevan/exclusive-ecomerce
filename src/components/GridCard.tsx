@@ -1,4 +1,4 @@
-import { Box, Rating } from "@mui/material";
+import { Box, Rating, SxProps, Theme } from "@mui/material";
 import * as React from "react";
 import useColorScheme from "../hooks/useColorScheme";
 import Text from "./Text";
@@ -19,6 +19,7 @@ interface Props {
   discount?: string | number;
   hasFavourite?: boolean;
   handleFavourite?: (value: any) => void;
+  style?: SxProps<Theme>;
 }
 
 const Card = ({
@@ -31,6 +32,7 @@ const Card = ({
   hasDiscount,
   hasFavourite,
   handleFavourite,
+  style,
 }: Props) => {
   const { colorscheme } = useColorScheme();
   const { darkMode } = React.useContext<any>(SettingsContext);
@@ -46,6 +48,7 @@ const Card = ({
         alignItems: "start",
         justifyContent: "space-between",
         margin: 0.5,
+        ...style,
       }}
     >
       <Box
@@ -95,7 +98,7 @@ const Card = ({
             />
             <IconBtn
               muiIcon={<Visibility />}
-              onClick={handleFavourite}
+              // onClick={handleFavourite}
               style={{ marginRight: 1, mt: "5px" }}
             />
           </Box>

@@ -117,7 +117,7 @@ const InputField = ({
   const { colorscheme } = useColorScheme();
   return (
     <>
-      <div id={id} style={{ width: "100%" }}>
+       <div id={id} >
         <TextField
           // fullWidth={fullwidth}
           autoComplete="off"
