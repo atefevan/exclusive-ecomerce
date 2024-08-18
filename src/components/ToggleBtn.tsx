@@ -3,7 +3,6 @@ import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import { SxProps, Theme } from "@mui/material";
 import useColorScheme from "../hooks/useColorScheme";
-import { SettingsContext } from "../context/Settings";
 
 interface Props {
   size?: "small" | "medium" | "large";
