@@ -10,7 +10,7 @@ interface Props {
 
 const RangeBar: React.FC<Props> = ({ value, setValue }) => {
   const { colorscheme } = useColorScheme();
-  const handleChange = (event: Event, newValue: number | number[]) => {
+  const handleChange = (_: Event, newValue: number | number[]) => {
     if (Array.isArray(newValue)) {
       setValue(newValue);
     }

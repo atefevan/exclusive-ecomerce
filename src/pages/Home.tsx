@@ -112,7 +112,7 @@ const Home = () => {
             }}
           >
             <Carousel>
-              {Array.from(new Array(5)).map((item) => (
+              {Array.from(new Array(5)).map((_) => (
                 <Box
                   sx={{
                     display: "flex",
@@ -211,7 +211,7 @@ const Home = () => {
             }}
           >
             {!loading
-              ? products?.map((product, index) => (
+              ? products?.map((product) => (
                   <Card
                     key={product?.id}
                     title={product?.title}

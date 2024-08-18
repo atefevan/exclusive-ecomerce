@@ -183,7 +183,7 @@ const Products = () => {
     }
   };
 
-  const handlePageChange = (event: React.ChangeEvent<unknown>, value: number) =>
+  const handlePageChange = (_: React.ChangeEvent<unknown>, value: number) =>
     setPage(value);
 
   const handleSortChange = (order: "asc" | "desc") => setSortOrder(order);

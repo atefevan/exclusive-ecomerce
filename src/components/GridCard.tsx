@@ -23,15 +23,11 @@ interface Props {
 }
 
 const Card = ({
-  id,
   img,
   title,
   price,
   rating,
   rateCount,
-  discount,
-  hasDiscount,
-  hasFavourite,
   handleFavourite,
   style,
 }: Props) => {
@@ -43,7 +39,6 @@ const Card = ({
         display: "flex",
         flexDirection: "column",
         minWidth: "230px",
-        // border: `1px solid ${colorscheme.text}`,
         overflow: "clip",
         borderRadius: "5%",
         alignItems: "start",
