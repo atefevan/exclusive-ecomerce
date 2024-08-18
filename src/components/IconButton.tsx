@@ -2,6 +2,7 @@ import { IconButton, SxProps, Theme } from "@mui/material";
 import { ReactElement } from "react";
 import useColorScheme from "../hooks/useColorScheme";
 interface Props {
+  id?: string;
   muiIcon: ReactElement<any, any>;
   hoverColor?: any;
   height?: string | number;
@@ -11,6 +12,7 @@ interface Props {
   onClick?: (e?: any) => void;
 }
 const IconBtn = ({
+  id,
   muiIcon,
   height = "40px",
   width = "40px",
@@ -22,6 +24,7 @@ const IconBtn = ({
   return (
     <>
       <IconButton
+        id={id}
         sx={{
           bgcolor: bgColor,
           height: height,

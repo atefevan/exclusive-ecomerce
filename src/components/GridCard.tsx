@@ -9,6 +9,7 @@ import { FavoriteBorder, Visibility } from "@mui/icons-material";
 import IconBtn from "./IconButton";
 
 interface Props {
+  id?: string;
   img?: string;
   title?: string;
   price?: string | number;
@@ -22,6 +23,7 @@ interface Props {
 }
 
 const Card = ({
+  id,
   img,
   title,
   price,

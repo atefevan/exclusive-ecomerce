@@ -187,6 +187,7 @@ const Home = () => {
             <Timer styles={{ pl: { xs: "0px", md: "60px" } }} />
             <Box sx={{ display: { xs: "none", md: "flex" } }}>
               <IconBtn
+              
                 muiIcon={<West />}
                 onClick={scrollLeft}
                 style={{ marginRight: 1 }}
