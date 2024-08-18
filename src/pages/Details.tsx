@@ -15,7 +15,7 @@ import { lottie } from "../assets";
 const Details = () => {
   const { colorscheme } = useColorScheme();
   const { pid } = useParams();
-  const [detail, setDetail] = React.useState<any[]>([]);
+  const [detail, setDetail] = React.useState<any>([]);
   const [loading, setLoading] = React.useState<boolean>(false);
   const [selectColor, setSelectColor] = React.useState<string>("");
   React.useEffect(() => {

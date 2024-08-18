@@ -1,5 +1,4 @@
 import { Box } from "@mui/material";
-import * as React from "react";
 import Background from "../components/Background";
 import { fontSizes } from "../constant/sizes";
 import Footer from "../components/Footer";

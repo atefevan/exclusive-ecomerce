@@ -57,7 +57,6 @@ const Dropdown = ({
   menuWidth = 100,
   outlineColor = useColorScheme().colorscheme.text,
 }: Props) => {
-  const { colorscheme } = useColorScheme();
   return (
     <div id={id} style={{ width: "100%" }}>
       <FormControl

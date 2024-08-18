@@ -25,10 +25,9 @@ const ToggleBtn = ({
   setSelected,
 }: Props) => {
   const { colorscheme } = useColorScheme();
-  const { darkMode } = React.useContext(SettingsContext);
 
   const handleAlignment = (
-    event: React.MouseEvent<HTMLElement>,
+    _: React.MouseEvent<HTMLElement>,
     newAlignment: "left" | "right" | null
   ) => {
     if (newAlignment === "left" || newAlignment === "right") {

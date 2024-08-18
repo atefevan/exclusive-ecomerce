@@ -1,5 +1,4 @@
 import { Skeleton, SxProps, Theme } from "@mui/material";
-import * as React from "react";
 interface Props {
   color?: string;
   type?: "rectangular" | "circular" | "rounded" | "text";
@@ -9,7 +8,6 @@ interface Props {
   style?: SxProps<Theme>;
 }
 const Loader = ({
-  color = "#2a2c2f",
   width = "100%",
   height = "100%",
   type = "rectangular",
