@@ -5,11 +5,10 @@
 
 ## Table of Contents
 * [General Info](#general-information)
-* [Technologies Used](#technologies-used)
+* [Technologies](#technologies)
 * [Features](#features)
 * [Screenshots](#screenshots)
 * [Setup](#setup)
-* [Usage](#usage)
 * [Project Status](#project-status)
 * [Room for Improvement](#room-for-improvement)
 * [Acknowledgements](#acknowledgements)
@@ -72,7 +71,7 @@ To do:
 
 
 ## Acknowledgements
-Give credit here.
+
 - This project was inspired by [RedTilt]()
 - This project was based on provided task.
 - Many thanks to [RedTilt]()
