@@ -40,8 +40,8 @@
 
 
 ## Screenshots
-![Frame one](https://drive.google.com/uc?export=view&id=1nMZXaEfUHmIbKJQhivppzF3tnqP_Wx8N)<br><br>
-![Frame two](https://drive.google.com/uc?export=view&id=1hzcLU9EFRVdwR5sba6xLxTIoNrDZ2IBa)<br><br>
+![Frame one](https://drive.google.com/uc?export=view&id=1nMZXaEfUHmIbKJQhivppzF3tnqP_Wx8N)<br>
+![Frame two](https://drive.google.com/uc?export=view&id=1hzcLU9EFRVdwR5sba6xLxTIoNrDZ2IBa)<br>
 ![Frame three](https://drive.google.com/uc?export=view&id=1Cwo3QMGq7AaLafok2iLd7sLh6ggugf9S)
 
 
