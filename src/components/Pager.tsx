@@ -20,25 +20,20 @@ const Pager = ({ size, page, onChange, style }: Props) => {
         count={size}
         page={page}
         onChange={onChange}
+        color="primary"
         sx={{
           "& .MuiPaginationItem-root": {
             backgroundColor: colorscheme.transparent,
             color: colorscheme.text,
+            transition: "background-color 1s ease",
           },
           "& .MuiPaginationItem-root:hover": {
             backgroundColor:
               darkMode === "dark" ? colorscheme.gray800 : colorscheme.gray500,
+            color: colorscheme.text,
           },
           "& .Mui-selected": {
-            backgroundColor:
-              darkMode === "dark" ? colorscheme.teal : colorscheme.lavender,
-            color: colorscheme.white,
-            "&:hover": {
-              backgroundColor:
-                darkMode === "dark"
-                  ? colorscheme.teal
-                  : colorscheme.lavender, // Keeps the color on hover
-            },
+            backgroundColor: colorscheme.teal,
           },
           "& .MuiPaginationItem-ellipsis": {
             color: colorscheme.text,
