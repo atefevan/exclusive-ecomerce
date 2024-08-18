@@ -71,15 +71,15 @@ To do:
 
 ## Acknowledgements
 Give credit here.
-- This project was inspired by [REDLIT]()
+- This project was inspired by [RedTilt]()
 - This project was based on provided task.
-- Many thanks to [REDLIT]()
+- Many thanks to [RedTilt]()
 
 
 ## Contact
 Credit : [Atef Evan](https://www.github.com/atefevan)
 Feel free to Poke me on : <br><br>
-[<img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="Logo" width="30" height="30">](https://www.linkedin.com/in/atefevan/)[<img src="https://www.svgrepo.com/show/475654/github-color.svg" alt="Logo" width="30" height="30" style="margin-left:20px;">](https://www.github.com/atefevan)[<img src="https://seeklogo.com/images/F/facebook-icon-logo-C61047A9E7-seeklogo.com.png" alt="Logo" width="30" height="30" style="margin-left:20px;">](https://www.facebook.com/people/Atef-Shahrier-Evan/pfbid0LaedWf8vzuRK3AE1LC5qFxQ8vjKnpUdeNJbZRWnp41zf77C6MYWPC8kfLMfWtXLZl/)
+[<img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="Logo" width="30" height="30">](https://www.linkedin.com/in/atefevan/)&nbsp;[<img src="https://www.svgrepo.com/show/475654/github-color.svg" alt="Logo" width="30" height="30" style="margin-left:20px;">](https://www.github.com/atefevan)&nbsp;[<img src="https://seeklogo.com/images/F/facebook-icon-logo-C61047A9E7-seeklogo.com.png" alt="Logo" width="30" height="30" style="margin-left:20px;">](https://www.facebook.com/people/Atef-Shahrier-Evan/pfbid0LaedWf8vzuRK3AE1LC5qFxQ8vjKnpUdeNJbZRWnp41zf77C6MYWPC8kfLMfWtXLZl/)
 
 <!-- Optional -->
  ## License 
