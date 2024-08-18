@@ -51,7 +51,7 @@ const Details = () => {
             <Box
               sx={{
                 display: "flex",
-                mt: { xs: "10vh" },
+                mt: { xs: "10vh",md:"0vh" },
                 justifyContent: "center",
                 alignItems: "center",
               }}

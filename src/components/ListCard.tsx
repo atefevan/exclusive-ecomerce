@@ -154,6 +154,7 @@ const ListCard = ({ product, hasFavourite, handleFavourite, style }: Props) => {
             bgColor={colorscheme.white}
             startIcon={<Favorite sx={{ color: colorscheme.black }} />}
             onClick={handleFavourite}
+            style={{display:{xs:"none",md:"flex"}}}
           />
         )}
       </Box>
