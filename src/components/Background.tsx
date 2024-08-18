@@ -1,7 +1,6 @@
 import { Box, SxProps, Theme } from "@mui/material";
 import useColorScheme from "../hooks/useColorScheme";
 import * as React from "react";
-import { colors } from "../constant/colors";
 import Header from "./Header";
 import Nav from "./Nav";
 
@@ -20,7 +19,6 @@ interface Props {
 const Background = ({
   padding,
   position,
-  bgColor,
   left = 0,
   right = 0,
   top = 0,
@@ -30,7 +28,6 @@ const Background = ({
   styles,
 }: Props) => {
   const { colorscheme } = useColorScheme();
-  // const themeState = localStorage.getItem("theme");
   return (
     <Box
       sx={{

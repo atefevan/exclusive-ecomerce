@@ -119,7 +119,6 @@ const InputField = ({
     <>
        <div id={id} >
         <TextField
-          // fullWidth={fullwidth}
           autoComplete="off"
           hiddenLabel={hiddenLabel}
           focused={focused}

@@ -1,6 +1,13 @@
 import * as React from "react";
+interface Type {
+  darkMode: string;
+  toggleMode: () => void;
+}
 
-const SettingsContext = React.createContext({});
+const SettingsContext = React.createContext<Type>({
+  darkMode: "light",
+  toggleMode: () => {},
+});
 
 const SettingsProvider = ({ children }: any) => {
   const [darkMode, setDarkMode] = React.useState<string>(

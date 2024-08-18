@@ -15,7 +15,6 @@ import { new_categories } from "../mock/data";
 import { png } from "../assets";
 import Divider from "../components/Divider";
 import { capitalize } from "../utils/Capitalize";
-import { useNavigate, useSearchParams } from "react-router-dom";
 import Footer from "../components/Footer";
 import Carousel from "../components/Carousel";
 
@@ -25,7 +24,10 @@ const Home = () => {
   const [loading, setLoading] = React.useState<boolean>(false);
   const [currentIndex, setCurrentIndex] = React.useState(0);
   const cardContainerRef = React.useRef<HTMLDivElement>(null);
-  const navigate = useNavigate();
+
+  React.useEffect(() => {
+    getProducts();
+  }, []);
 
   const getProducts = async () => {
     setLoading(true);
@@ -33,10 +35,6 @@ const Home = () => {
     setProducts(res);
     setLoading(false);
   };
-
-  React.useEffect(() => {
-    getProducts();
-  }, []);
 
   const scrollLeft = () => {
     if (currentIndex > 0) {
@@ -63,10 +61,10 @@ const Home = () => {
           height: "100vh",
         }}
       >
-        {/* Banner Section */}
+        {/* Category Section */}
         <Box sx={{ display: "flex", minHeight: "45vh", pb: "2vh", px: "5vw" }}>
           <Box
-            key={"banner"}
+            key={"category"}
             sx={{
               display: "flex",
               flexDirection: "column",
@@ -94,6 +92,7 @@ const Home = () => {
               />
             ))}
           </Box>
+
           <Box
             sx={{ display: { xs: "none", md: "flex" }, alignItems: "center" }}
           >
@@ -103,6 +102,7 @@ const Home = () => {
               color={colorscheme.text}
             />
           </Box>
+          {/* Banner */}
           <Box
             sx={{
               display: { xs: "none", md: "flex" },
@@ -112,7 +112,7 @@ const Home = () => {
             }}
           >
             <Carousel>
-              {Array.from(new Array(5)).map((_, index) => (
+              {Array.from(new Array(5)).map((item) => (
                 <Box
                   sx={{
                     display: "flex",
@@ -139,7 +139,7 @@ const Home = () => {
           </Box>
         </Box>
 
-        {/* Flash Sales */}
+        {/* Today's Sales */}
         <Box
           sx={{
             display: "flex",

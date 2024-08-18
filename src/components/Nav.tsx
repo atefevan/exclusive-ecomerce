@@ -7,13 +7,10 @@ import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
-import { Search } from "@mui/icons-material";
-import Tooltip from "@mui/material/Tooltip";
-import { DarkMode, LightMode, FilterAlt } from "@mui/icons-material";
+import { DarkMode, LightMode } from "@mui/icons-material";
 import MenuItem from "@mui/material/MenuItem";
-import { menuOptions, routes } from "../constant/routes";
+import { routes } from "../constant/routes";
 import { companyName } from "../mock/data";
-import InputField from "./InputField";
 import { colors } from "../constant/colors";
 import Text from "./Text";
 import { fontSizes } from "../constant/sizes";
@@ -23,31 +20,19 @@ import { capitalize } from "../utils/Capitalize";
 import IconBtn from "./IconButton";
 import { SettingsContext } from "../context/Settings";
 
-// const settings = ["Profile", "Account", "Dashboard", "Logout"];
-
 const Nav = () => {
   const { colorscheme } = useColorScheme();
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
   const { darkMode, toggleMode } = React.useContext<any>(SettingsContext);
-  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
-    null
-  );
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
-  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElUser(event.currentTarget);
-  };
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
-  };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
   };
 
   const handleRouteClick = (page: string) => {
@@ -164,37 +149,6 @@ const Nav = () => {
               onClick={toggleMode}
               style={{ marginRight: 1 }}
             />
-            {/* <InputField
-              size="small"
-              placeHolder="looking for ?"
-              suffixIcon={<Search />}
-              style={{ display: { xs: "none", md: "flex" } }}
-            />
-            <Btn
-              variant="outlined"
-              fontSize={fontSizes.sm}
-              size="small"
-              style={{
-                display: { xs: "none", md: "flex" },
-                marginInline: "1vw",
-                width: "50%",
-              }}
-              label={"Filter"}
-              height="40px"
-              endIcon={
-                <FilterAlt
-                  sx={{
-                    color:
-                      darkMode === "dark"
-                        ? colorscheme.white
-                        : colorscheme.black,
-                  }}
-                />
-              }
-              borderColor={
-                darkMode === "dark" ? colorscheme.white : colorscheme.black
-              }
-            /> */}
           </Box>
         </Toolbar>
       </Container>

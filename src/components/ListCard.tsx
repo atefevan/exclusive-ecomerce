@@ -21,21 +21,19 @@ interface Props {
 const ListCard = ({ product, hasFavourite, handleFavourite, style }: Props) => {
   const { colorscheme } = useColorScheme();
   const { darkMode } = React.useContext(SettingsContext);
-
   return (
     <Box
       sx={{
         display: "flex",
         borderRadius: "8px",
-        backgroundColor:
-          darkMode === "dark" ? "#2F303C" : colorscheme.gray100,
+        backgroundColor: darkMode === "dark" ? "#2F303C" : colorscheme.gray100,
         height: "22vh",
         overflow: "hidden",
         m: 1,
         ...style,
       }}
     >
-      {/* Left Section: Image and Info */}
+      {/* Image */}
       <Box
         sx={{
           display: "flex",
@@ -81,7 +79,6 @@ const ListCard = ({ product, hasFavourite, handleFavourite, style }: Props) => {
             </Text>
           </Box>
           <Text
-            // fontSize={fontSizes.sm}
             style={{
               fontSize: { xs: fontSizes.xs, md: fontSizes.sm },
               mt: 1,
@@ -103,7 +100,7 @@ const ListCard = ({ product, hasFavourite, handleFavourite, style }: Props) => {
         style={{ height: "90%", alignSelf: "center" }}
       />
 
-      {/* Right Section: Price, Shipping, Buttons */}
+      {/* Price, Shipping, Buttons */}
       <Box
         sx={{
           display: "flex",
@@ -113,23 +110,21 @@ const ListCard = ({ product, hasFavourite, handleFavourite, style }: Props) => {
           p: 2,
         }}
       >
-        <Box sx={{ display: "flex",flex:1,justifyContent:"space-between" }}>
+        <Box sx={{ display: "flex", flex: 1, justifyContent: "space-between" }}>
           <Text fontSize={fontSizes.xl} fontWeight="bold">
             $ {product?.price}
           </Text>
           <Tooltip title="Stock Available" arrow>
-          <Box
-            component="img"
-            src={png.in_stock}
-            alt="Free Shipping"
-            height="25px"
-          /></Tooltip>
+            <Box
+              component="img"
+              src={png.in_stock}
+              alt="Free Shipping"
+              height="25px"
+            />
+          </Tooltip>
         </Box>
         <Box display="flex" alignItems="center">
-          <Text
-            fontSize={fontSizes.sm}
-            style={{ mr: 1 }}
-          >
+          <Text fontSize={fontSizes.sm} style={{ mr: 1 }}>
             Shipping
           </Text>
           <Box
@@ -146,6 +141,7 @@ const ListCard = ({ product, hasFavourite, handleFavourite, style }: Props) => {
           borderColor={colorscheme.white}
           fontColor={colorscheme.black}
           bgColor={colorscheme.white}
+          onClick={() => (window.location.href = `product/${product?.id}`)}
         />
         {hasFavourite && (
           <Btn

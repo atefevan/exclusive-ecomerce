@@ -1,5 +1,4 @@
 import { Box } from "@mui/material";
-import * as React from "react";
 import Background from "../components/Background";
 import Footer from "../components/Footer";
 import Text from "../components/Text";

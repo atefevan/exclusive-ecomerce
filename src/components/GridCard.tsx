@@ -6,7 +6,6 @@ import { fontSizes } from "../constant/sizes";
 import { randRating } from "../utils/Parser";
 import { SettingsContext } from "../context/Settings";
 import { FavoriteBorder, Visibility } from "@mui/icons-material";
-import IconButton from "./IconButton";
 import IconBtn from "./IconButton";
 
 interface Props {

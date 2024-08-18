@@ -5,8 +5,10 @@ import Text from "./Text";
 import InputField from "./InputField";
 import { Send } from "@mui/icons-material";
 import { fontSizes } from "../constant/sizes";
+import { validEmail } from "../utils/Validator";
 const Footer = () => {
   const { colorscheme } = useColorScheme();
+  const [clientEmail,setClientEmail] = React.useState<string>("");
   return (
     <Box
       sx={{
@@ -32,7 +34,18 @@ const Footer = () => {
         <Text custom_color={colorscheme.white} fontSize={fontSizes.md} style={{py:"10px",cursor:"pointer"}}>Subscribe</Text>
         <Box sx={{ display: "flex", flexDirection: "column",py:"5px" }}>
           <Text custom_color={colorscheme.white} style={{py:"2px"}}>Get 10% off your first order</Text>
-          <InputField suffixIcon={<Send sx={{color:colorscheme.white}}/>} size="small" fontColor={colorscheme.white} placeHolder="Email"/>
+          <InputField 
+            suffixIcon={<Send sx={{ color: colorscheme.white }} />} 
+            value={clientEmail} 
+            fieldOnChange={(event) => setClientEmail(event.target.value)} 
+            size="small" 
+            fontColor={colorscheme.white} 
+            placeHolder="Email" 
+            validator={validEmail(clientEmail)}
+            hasSuffixAction 
+            handleSuffixAction={() => window.location.href = `mailto:${clientEmail}?subject=Exclusive Newsletter&body=Welcome to Exclusive NewsLetter`} 
+          />
+
         </Box>
       </Box>
       {/* Support */}

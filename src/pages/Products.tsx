@@ -2,7 +2,6 @@ import {
   Apps,
   FilterList,
   Menu,
-  Search,
   Sort,
   MonetizationOn,
 } from "@mui/icons-material";
@@ -36,18 +35,20 @@ import SpeedSelect from "../components/SpeedSelect";
 const Products = () => {
   const { colorscheme } = useColorScheme();
   const [formData, setFormData] = React.useState<any>({
-    minRange: 30,
-    maxRange: 100,
+    minRange: 0,
+    maxRange: 1000,
   });
   const [categories, setCategories] = React.useState<string[]>([]);
   const [products, setProducts] = React.useState<any>([]);
   const [loadProducts, setLoadProducts] = React.useState<boolean>(false);
   const [loadCategories, setLoadCategories] = React.useState<boolean>(false);
-  const [range, setRange] = React.useState<number[]>([30, 100]);
+  const [range, setRange] = React.useState<number[]>([0, 1000]);
   const [view, setView] = React.useState<"left" | "right">("left");
-  const [filteredProducts, setFilteredProducts] = React.useState<any[]>([]);
   const [productQuery, setProductQuery] = React.useState<string>("");
   const [allProducts, setAllProducts] = React.useState<[]>([]);
+  const [filteredProducts, setFilteredProducts] = React.useState<any[]>([
+    ...allProducts,
+  ]);
 
   // FOR SORTING
   const [sortOrder, setSortOrder] = React.useState<"asc" | "desc">("asc");
@@ -70,18 +71,6 @@ const Products = () => {
   }, [formData.category]);
 
   React.useEffect(() => {
-    if (productQuery) {
-      setFilteredProducts(
-        allProducts.filter((product: any) =>
-          product?.title.toString().includes(productQuery)
-        )
-      );
-    } else {
-      setFilteredProducts(allProducts);
-    }
-  }, [productQuery]);
-
-  React.useEffect(() => {
     const sortedProducts = [...products].sort((a, b) => {
       if (sortBy === "price") {
         return sortOrder === "asc" ? a.price - b.price : b.price - a.price;
@@ -96,6 +85,33 @@ const Products = () => {
       sortedProducts.slice((page - 1) * itemsPerPage, page * itemsPerPage)
     );
   }, [products, page, sortOrder, sortBy]);
+
+  // FILTERING WITH RANGEBAR , MIN & MAX INPUTFIELD
+  React.useEffect(() => {
+    if (formData.category) {
+      let filtered = [...allProducts].filter(
+        (product: any) =>
+          product.category === formData.category &&
+          product.price >= formData.minRange &&
+          product.price <= formData.maxRange
+      );
+
+      const sortedProducts = filtered.sort((a: any, b: any) => {
+        if (sortBy === "price") {
+          return sortOrder === "asc" ? a.price - b.price : b.price - a.price;
+        } else if (sortBy === "rating") {
+          return sortOrder === "asc"
+            ? a.rating.rate - b.rating.rate
+            : b.rating.rate - a.rating.rate;
+        }
+        return 0;
+      });
+      setFilteredProducts(sortedProducts);
+      setCurrentProducts(
+        sortedProducts.slice((page - 1) * itemsPerPage, page * itemsPerPage)
+      );
+    }
+  }, [formData, sortOrder, sortBy, page, allProducts]);
 
   const handleFormDataInput = (e: any) => {
     e.preventDefault();
@@ -118,15 +134,15 @@ const Products = () => {
     await fetchProducts()
       .then((res) => {
         setAllProducts(res);
+        setFilteredProducts(res);
       })
       .catch((err) => {
-        console.log("Failed All Prodcuts : ", err);
+        console.log("Failed All Products : ", err);
       });
   };
 
   const handleRangeChange = (newRange: number[]) => {
     setRange(newRange);
-
     setFormData({
       ...formData,
       minRange: newRange[0],
@@ -167,16 +183,27 @@ const Products = () => {
     }
   };
 
-  const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
+  const handlePageChange = (event: React.ChangeEvent<unknown>, value: number) =>
     setPage(value);
-  };
 
-  const handleSortChange = (order: "asc" | "desc") => {
-    setSortOrder(order);
-  };
+  const handleSortChange = (order: "asc" | "desc") => setSortOrder(order);
 
-  const handleSortByChange = (criteria: "price" | "rating") => {
+  const handleSortByChange = (criteria: "price" | "rating") =>
     setSortBy(criteria);
+
+  const handleProductQuery = (query: string) => {
+    const queryProduct = query
+      ? filteredProducts.filter((item) =>
+          item.title.toLowerCase().includes(query.toLowerCase())
+        )
+      : filteredProducts;
+
+    // ListView
+    setCurrentProducts(
+      queryProduct.slice((page - 1) * itemsPerPage, page * itemsPerPage)
+    );
+    // GridView
+    setProducts(queryProduct);
   };
 
   return (
@@ -191,7 +218,6 @@ const Products = () => {
               flexDirection: "column",
               height: "100%",
               minWidth: "300px",
-              // backgroundColor: colorscheme.beige500,
             }}
           >
             {/* Filter Categories */}
@@ -260,6 +286,7 @@ const Products = () => {
               </Box>
             </Box>
 
+            {/* Sort By */}
             <Box
               sx={{
                 display: "flex",
@@ -350,13 +377,13 @@ const Products = () => {
             color={colorscheme.text}
           />
 
+          {/* Filtered Products */}
           <Box
             sx={{
               display: "flex",
               height: "90vh",
               width: "100%",
               flexDirection: "column",
-              // backgroundColor: colorscheme.limegreen500,
             }}
           >
             <Box
@@ -380,6 +407,7 @@ const Products = () => {
                   alignItems: "center",
                 }}
               >
+                {/* Search Selector */}
                 <SpeedSelect
                   id="product-query"
                   size="small"
@@ -387,9 +415,13 @@ const Products = () => {
                   placeHolder="Looking for ?"
                   label=""
                   value={productQuery}
-                  setValue={(value) => setProductQuery(value)}
+                  setValue={(value) => {
+                    setProductQuery(value);
+                    handleProductQuery(value);
+                  }}
                   style={{ width: "250px", px: "1vw" }}
                 />
+                {/* GridView | ListView  Toggler */}
                 <ToggleBtn
                   leftIcon={<Apps sx={{ color: colorscheme.text }} />}
                   rightIcon={<Menu sx={{ color: colorscheme.text }} />}
@@ -406,6 +438,7 @@ const Products = () => {
                 overflow: "scroll",
               }}
             >
+              {/* Grid Cards */}
               {view === "right" ? (
                 <Grid
                   container
@@ -438,29 +471,44 @@ const Products = () => {
                     display: "flex",
                     flexDirection: "column",
                     width: "100%",
+
                     justifyContent: "start",
                   }}
                 >
-                  {!loadProducts && !loadCategories
-                    ? currentProducts?.map((product: any, index: number) => (
-                        <ListCard key={index} product={product} hasFavourite />
-                      ))
-                    : Array.from(new Array(3)).map((_, index) => (
-                        <Box key={index} sx={{ display: "flex" }}>
-                          <Loader
-                            type="rectangular"
-                            width={"100%"}
-                            height={190}
-                            style={{ borderRadius: "10px", margin: "5px" }}
+                  {/* List Cards */}
+                  <Box
+                    sx={{
+                      display: "flex",
+                      flexDirection: "column",
+                      height: "70vh",
+                    }}
+                  >
+                    {!loadProducts && !loadCategories
+                      ? currentProducts?.map((product: any, index: number) => (
+                          <ListCard
+                            key={index}
+                            product={product}
+                            hasFavourite
                           />
-                        </Box>
-                      ))}
+                        ))
+                      : Array.from(new Array(3)).map((_, index) => (
+                          <Box key={index} sx={{ display: "flex" }}>
+                            <Loader
+                              type="rectangular"
+                              width={"100%"}
+                              height={190}
+                              style={{ borderRadius: "10px", margin: "5px" }}
+                            />
+                          </Box>
+                        ))}
+                  </Box>
 
+                  {/* Pagination */}
                   <Pager
                     size={Math.ceil(products.length / itemsPerPage)}
                     page={page}
-                    onChange={handleChange}
-                    style={{ alignSelf: "center", marginTop: "10px" }}
+                    onChange={handlePageChange}
+                    style={{ alignSelf: "center" }}
                   />
                 </Box>
               )}

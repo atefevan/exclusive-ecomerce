@@ -1,6 +1,7 @@
 import * as React from "react";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
+import useColorScheme from "../hooks/useColorScheme";
 interface Props {
   id?: string;
   options?: any;
@@ -15,39 +16,40 @@ interface Props {
   value?: any;
   style?: any;
   isDisabled?: boolean;
-  size?: string | number;
+  size?: "small" | "medium";
   placeHolder?: string;
 }
 const SpeedSelect = ({
   id,
   options,
-  focuseColor = "white",
-  focuseColorUnderline = "white",
-  fontColor = "white",
+  focuseColor = useColorScheme().colorscheme.text,
+  focuseColorUnderline = useColorScheme().colorscheme.text,
+  fontColor = useColorScheme().colorscheme.text,
   fontSize,
-  outlineColor = "white",
-  focuseBorderColor = "white",
+  outlineColor = useColorScheme().colorscheme.text,
+  focuseBorderColor = useColorScheme().colorscheme.text,
   label = "demo",
   value,
   size,
-  setValue,
+  setValue = () => {},
   style,
   placeHolder,
   isDisabled,
 }: Props) => {
   const [inputValue, setInputValue] = React.useState("");
+  const items = options?.map((item: any) => item.title);
   return (
     <Autocomplete
       disablePortal
       id={id}
-      options={options}
+      options={items}
       disabled={isDisabled}
       value={value}
-      onChange={(event: any, newValue: string | null) => {
+      onChange={(_, newValue: string | null) => {
         newValue ? setValue(newValue) : setValue("");
       }}
       inputValue={inputValue}
-      onInputChange={(event, newInputValue) => {
+      onInputChange={(_, newInputValue) => {
         setInputValue(newInputValue);
       }}
       sx={{
@@ -62,7 +64,6 @@ const SpeedSelect = ({
         "& .MuiOutlinedInput-root": {
           "& fieldset": {
             borderColor: focuseBorderColor,
-            // fontSize: labelFontSize,
           },
           "&:hover fieldset": {
             borderColor: focuseBorderColor,
@@ -88,7 +89,6 @@ const SpeedSelect = ({
         },
         ...style,
       }}
-      // getOptionLabel={option => option.name}
       ListboxProps={{ style: { maxHeight: 150 } }}
       renderInput={(params) => (
         <TextField

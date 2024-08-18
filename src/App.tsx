@@ -9,8 +9,6 @@ import Auth from "./pages/Auth";
 import Products from "./pages/Products";
 import Details from "./pages/Details";
 import { SettingsProvider } from "./context/Settings";
-import Header from "./components/Header";
-import Background from "./components/Background";
 const App = () => {
   return (
     <SnackbarProvider style={{ fontFamily: "Arial" }}>
@@ -21,7 +19,7 @@ const App = () => {
               <Route path="/" element={<Home />} />
               <Route path="/wishlist" element={<Wishlist />} />
               <Route path="/product" element={<Products />} />
-              <Route path="/product/:id" element={<Details />} />
+              <Route path="/product/:pid" element={<Details />} />
               <Route path="/about" element={<About />} />
               <Route path="/auth" element={<Auth />} />
               <Route path="*" element={<NoPage />} />

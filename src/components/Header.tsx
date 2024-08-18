@@ -1,4 +1,4 @@
-import { Box, Button } from "@mui/material";
+import { Box } from "@mui/material";
 import * as React from "react";
 import useColorScheme from "../hooks/useColorScheme";
 import Text from "./Text";
@@ -39,6 +39,7 @@ const Header = () => {
         borderColor={
           darkMode === "dark" ? colorscheme.black : colorscheme.white
         }
+        onClick={() => (window.location.href = `/product`)}
       />
     </Box>
   );

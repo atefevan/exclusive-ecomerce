@@ -1,3 +1,6 @@
+// Lottie
+import loadingLottie from "./lottie/loading.json";
+
 // PNGS
 import banner from "./png/banner.png";
 import free from "./png/free.png";
@@ -10,4 +13,8 @@ export const png = {
   in_stock,
   not_found_light,
   not_found_dark,
+};
+
+export const lottie = {
+  loadingLottie,
 };

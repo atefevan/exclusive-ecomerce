@@ -10,7 +10,7 @@ interface Props {
 
 const RangeBar: React.FC<Props> = ({ value, setValue }) => {
   const { colorscheme } = useColorScheme();
-  const handleChange = (e: Event, newValue: number | number[]) => {
+  const handleChange = (event: Event, newValue: number | number[]) => {
     if (Array.isArray(newValue)) {
       setValue(newValue);
     }
@@ -22,7 +22,7 @@ const RangeBar: React.FC<Props> = ({ value, setValue }) => {
       onChange={handleChange}
       valueLabelDisplay="auto"
       min={0}
-      max={100}
+      max={1000}
       disableSwap
       sx={{
         color: colorscheme.text,

@@ -9,7 +9,7 @@ interface Props {
 
 const Carousel = ({
   children,
-  interval = 5000, // Default interval for auto-slide
+  interval = 5000,
   className = "",
 }: Props) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -31,7 +31,7 @@ const Carousel = ({
       <Box
         display="flex"
         sx={{
-          transition: "transform 1s ease-in-out", // 1 second transition
+          transition: "transform 1s ease-in-out",
           transform: `translateX(-${currentIndex * 100}%)`,
         }}
       >

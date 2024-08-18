@@ -19,7 +19,7 @@ export const fetchProducts = async () => {
 
 export const fetchProduct = async (id: string) => {
   try {
-    const response = await fetch(`${baseUrl}/product/${id}`);
+    const response = await fetch(`${baseUrl}/products/${id}`);
 
     if (response.status < 200 || response.status >= 300) {
       throw new Error(`Error: ${response.status}`);
